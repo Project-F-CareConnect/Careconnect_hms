@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-$con=mysqli_connect("localhost","root","");
+$con=mysqli_connect("localhost","root","","hmsdb","3307");
 if(isset($_POST['login_submit'])){
 	$username=$_POST['username'];
 	$password=$_POST['password'];
@@ -47,7 +47,7 @@ if(isset($_POST['doc_sub']))
 		header("Location:adddoc.php");
 }
 function display_admin_panel(){
-  session_start();
+  
 	echo '<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,7 +59,7 @@ function display_admin_panel(){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Global Hospital</a>
+  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> CareConnect</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -117,8 +117,8 @@ function display_admin_panel(){
                   <div class="col-md-4"><label>Doctor:</label></div>
                   <div class="col-md-8">
                    <select name="doctor" class="form-control" >
-                     <!-- <option value="Dr. Punam Shaw">Dr. Punam Shaw</option>
-                      <option value="Dr. Ashok Goyal">Dr. Ashok Goyal</option> -->
+                     <option value="Dr. Punam Shaw">Dr. Punam Shaw</option>
+                      <option value="Dr. Ashok Goyal">Dr. Ashok Goyal</option>
                       <?php display_docs();?>
                     </select>
                   </div><br><br>
