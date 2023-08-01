@@ -12,7 +12,7 @@ SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESUL TS */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
@@ -70,6 +70,47 @@ INSERT INTO `doctb` (`name`) VALUES
 ('Dr. Rohit Mehta');
 
 -- --------------------------------------------------------
+--
+-- Table structure for table `nurseb`
+--
+
+CREATE TABLE `nurseb` (
+  `name` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nurseb`
+--
+
+INSERT INTO `nurseb` (`name`) VALUES
+('Dr. Monika karki'),
+('Dr. Pravin karki'),
+('Dr. Priya Dutta'),
+('Dr. Rohit Sharma');
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `wboyd`
+--
+
+CREATE TABLE `wboyd` (
+  `name` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wboyd`
+--
+
+INSERT INTO `wboyd` (`name`) VALUES
+('Dr. Ashok Karki'),
+('Dr. Pravin Shrestha'),
+('Dr. Prithwiraj sing'),
+('Dr. Rohit Kandel');
+
+-- --------------------------------------------------------
+
+
+
 
 --
 -- Table structure for table `logintb`

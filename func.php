@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 
 session_start();
 $con=mysqli_connect("localhost","root","","hmsdb","3307");
+
 if(isset($_POST['login_submit'])){
 	$username=$_POST['username'];
 	$password=$_POST['password'];
@@ -18,6 +19,7 @@ if(isset($_POST['login_submit'])){
 	else
 		header("Location:error.php");
 }
+
 if(isset($_POST['update_data']))
 {
 	$contact=$_POST['contact'];
@@ -27,6 +29,8 @@ if(isset($_POST['update_data']))
 	if($result)
 		header("Location:updated.php");
 }
+
+
 function display_docs()
 {
 	global $con;
@@ -46,6 +50,52 @@ if(isset($_POST['doc_sub']))
 	if($result)
 		header("Location:adddoc.php");
 }
+//for nurse
+
+function display_nurse()
+{
+	global $con;
+	$query="select * from nursed";
+	$result=mysqli_query($con,$query);
+	while($row=mysqli_fetch_array($result))
+	{
+		$name=$row['name'];
+		echo '<option value="'.$name.'">'.$name.'</option>';
+	}
+}
+if(isset($_POST['nurse_sub']))
+{
+	$name=$_POST['name'];
+	$query="insert into nurseb(name)values('$name')";
+	$result=mysqli_query($con,$query);
+	if($result)
+		header("Location:addnurse.php");
+
+}
+
+//for wardboy
+
+function display_wboy()
+{
+	global $con;
+	$query="select * from wboyd";
+	$result=mysqli_query($con,$query);
+	while($row=mysqli_fetch_array($result))
+	{
+		$name=$row['name'];
+		echo '<option value="'.$name.'">'.$name.'</option>';
+	}
+}
+if(isset($_POST['wboy_sub']))
+{
+	$name=$_POST['name'];
+	$query="insert into wboyd(name)values('$name')";
+	$result=mysqli_query($con,$query);
+	if($result)
+		header("Location:addwardboys.php");
+}
+
+
 function display_admin_panel(){
   
 	echo '<!DOCTYPE html>
@@ -56,6 +106,8 @@ function display_admin_panel(){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
@@ -79,11 +131,18 @@ function display_admin_panel(){
     </form>
   </div>
 </nav>
+
+<!-- Navbar ends here -->
+
   </head>
+
+
   <style type="text/css">
     button:hover{cursor:pointer;}
     #inputbtn:hover{cursor:pointer;}
   </style>
+
+
   <body style="padding-top:50px;">
  <div class="jumbotron" id="ab1"></div>
    <div class="container-fluid" style="margin-top:50px;">
@@ -91,12 +150,18 @@ function display_admin_panel(){
   <div class="col-md-4">
     <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Appointment</a>
+
       <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Payment Status</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Prescription</a>
+
       <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Doctors Section</a>
-       <a class="list-group-item list-group-item-action" id="list-attend-list" data-toggle="list" href="#list-attend" role="tab" aria-controls="settings">Attendance</a>
+
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-n-settings" role="tab" aria-controls="settings">Nurse Section</a>
+
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-w-settings" role="tab" aria-controls="settings">Wardboys Section</a>
+
     </div><br>
   </div>
+
   <div class="col-md-8">
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
@@ -139,6 +204,9 @@ function display_admin_panel(){
           </div>
         </div><br>
       </div>
+
+
+
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
         <div class="card">
           <div class="card-body">
@@ -153,16 +221,43 @@ function display_admin_panel(){
           </div>
         </div><br><br>
       </div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+
+
+     
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
         <form class="form-group" method="post" action="func.php">
           <label>Doctors name: </label>
-          <input type="text" name="name" placeholder="enter doctors name" class="form-control">
+          <input type="text" name="name" placeholder="Enter doctor name" class="form-control">
           <br>
           <input type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
         </form>
       </div>
-       <div class="tab-pane fade" id="list-attend" role="tabpanel" aria-labelledby="list-attend-list">...</div>
+
+<!-- for nurse -->
+
+
+      <div class="tab-pane fade" id="list-n-settings" role="tabpanel" aria-labelledby="list-settings-list">
+        <form class="form-group" method="post" action="func.php">
+          <label>Nurse name: </label>
+          <input type="text" name="name" placeholder="Enter Nurse name" class="form-control">
+          <br>
+          <input type="submit" name="nurse_sub" value="Add Nurse" class="btn btn-primary">
+        </form>
+      </div>
+      
+<!-- for wardboys -->
+
+      <div class="tab-pane fade" id="list-w-settings" role="tabpanel" aria-labelledby="list-settings-list">
+        <form class="form-group" method="post" action="func.php">
+          <label>Wardboy name: </label>
+          <input type="text" name="name" placeholder="Enter Wardboy name" class="form-control">
+          <br>
+          <input type="submit" name="wboy_sub" value="Add Wardboy" class="btn btn-primary">
+        </form>
+      </div>
+
+
+      
     </div>
   </div>
 </div>
@@ -177,4 +272,3 @@ function display_admin_panel(){
   </body>
 </html>';
 }
-?>
