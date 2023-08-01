@@ -228,8 +228,16 @@ function display_admin_panel(){
         <form class="form-group" method="post" action="func.php">
           <label>Doctors name: </label>
           <input type="text" name="name" placeholder="Enter doctor name" class="form-control">
-          <br>
-          <input type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
+
+          <label style="margin-top:10px";>Specialization: </label>
+          <select name="status" class="form-control">
+            <option value="ENT">ENT</option>
+            <option value="Cardiology">Cardiology</option>
+          </select>
+
+
+
+          <input style="margin-top:20px"; type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
         </form>
       </div>
 
@@ -240,6 +248,20 @@ function display_admin_panel(){
         <form class="form-group" method="post" action="func.php">
           <label>Nurse name: </label>
           <input type="text" name="name" placeholder="Enter Nurse name" class="form-control">
+
+          <label style="margin-top:10px";>Room no: </label>
+          <select name="status" class="form-control">
+            <option value="morning">1</option>
+            <option value="night">2</option>
+          </select>
+
+           <label style="margin-top:10px";>Shift: </label>
+          <select name="status" class="form-control">
+            <option value="morning">Day</option>
+            <option value="night">Night</option>
+          </select>
+
+          
           <br>
           <input type="submit" name="nurse_sub" value="Add Nurse" class="btn btn-primary">
         </form>
@@ -251,6 +273,12 @@ function display_admin_panel(){
         <form class="form-group" method="post" action="func.php">
           <label>Wardboy name: </label>
           <input type="text" name="name" placeholder="Enter Wardboy name" class="form-control">
+
+          <label style="margin-top:10px";>Shift: </label>
+          <select name="status" class="form-control">
+            <option value="morning">Day</option>
+            <option value="night">Night</option>
+          </select>
           <br>
           <input type="submit" name="wboy_sub" value="Add Wardboy" class="btn btn-primary">
         </form>
