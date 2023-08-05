@@ -229,8 +229,17 @@ function display_admin_panel(){
                   <div class="col-md-4"><label>Room ID</label></div>
                   <div class="col-md-8">
                    <select name="room_id" class="form-control" >
-                     <option value="Dr. Punam Shaw">Dr. Punam Shaw</option>
-                      <option value="Dr. Ashok Goyal">Dr. Ashok Goyal</option>
+                     <option value="100"> 100.ICU </option>
+                     <option value="101"> 101.Emergency </option>
+                     <option value="102"> 102.OT </option>
+                     <option value="103"> 103.General </option>
+                     <option value="104"> 104.ICU </option>
+                     <option value="105"> 105.Emergency</option>
+                     <option value="106"> 106.OT</option>
+                     <option value="107"> 107.General </option>
+                     <option value="108"> 108.Emergency </option>
+                     <option value="109"> 109.OT </option>
+                      
                       <?php display_docs();?>
                     </select>
                   </div><br><br>
