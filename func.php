@@ -4,121 +4,112 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-$con=mysqli_connect("localhost","root","","hmsdb","3306");
+$con = mysqli_connect("localhost", "root", "", "hmsdb", "3306");
 
-if(isset($_POST['login_submit'])){
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$query="select * from logintb where username='$username' and password='$password';";
-	$result=mysqli_query($con,$query);
-	if(mysqli_num_rows($result)==1)
-	{
-		$_SESSION['username']=$username;
-		header("Location:admin-panel.php");
-	}
-	else
-		header("Location:error.php");
+if (isset($_POST['login_submit'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $query = "select * from logintb where username='$username' and password='$password';";
+  $result = mysqli_query($con, $query);
+  if (mysqli_num_rows($result) == 1) {
+    $_SESSION['username'] = $username;
+    header("Location:admin-panel.php");
+  } else
+    header("Location:error.php");
 }
 
-if(isset($_POST['update_data']))
-{
-	$contact=$_POST['contact'];
-	$status=$_POST['status'];
-	$query="update appointmenttb set payment='$status' where contact='$contact';";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:updated.php");
+if (isset($_POST['update_data'])) {
+  $contact = $_POST['contact'];
+  $status = $_POST['status'];
+  $query = "update appointmenttb set payment='$status' where contact='$contact';";
+  $result = mysqli_query($con, $query);
+  if ($result)
+    header("Location:updated.php");
 }
 
 // Insert data into doctor table
 function display_docs()
 {
-	global $con;
-	$query="select * from doctor";
-	$result=mysqli_query($con,$query);
-	while($row=mysqli_fetch_array($result))
-	{
-		$name=$row['name'];
-		echo '<option value="'.$name.'">'.$name.'</option>';
+  global $con;
+  $query = "select * from doctor";
+  $result = mysqli_query($con, $query);
+  while ($row = mysqli_fetch_array($result)) {
+    $name = $row['name'];
+    echo '<option value="' . $name . '">' . $name . '</option>';
 
-    $phone_no=$row['phone_no'];
-		echo '<option value="'.$phone_no.'">'.$phone_no.'</option>';
+    $phone_no = $row['phone_no'];
+    echo '<option value="' . $phone_no . '">' . $phone_no . '</option>';
 
-    $specialization=$row['specialization'];
-		echo '<option value="'.$specialization.'">'.$specialization.'</option>';
-	}
+    $specialization = $row['specialization'];
+    echo '<option value="' . $specialization . '">' . $specialization . '</option>';
+  }
 }
-if(isset($_POST['doc_sub']))
-{
-	$name=$_POST['name'];
-  $phone_no=$_POST['phone_no'];
-  $specialization=$_POST['specialization'];
-	$query="insert into doctor(name,specialization,phone_no)values('$name','$specialization','$phone_no')";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:adddoc.php");
+if (isset($_POST['doc_sub'])) {
+  $name = $_POST['name'];
+  $phone_no = $_POST['phone_no'];
+  $specialization = $_POST['specialization'];
+  $query = "insert into doctor(name,specialization,phone_no)values('$name','$specialization','$phone_no')";
+  $result = mysqli_query($con, $query);
+  if ($result)
+    header("Location:adddoc.php");
 }
 //Insert data in Nurse table
 
 function display_nurse()
 {
-	global $con;
-	$query="select * from nurse";
-	$result=mysqli_query($con,$query);
-	while($row=mysqli_fetch_array($result))
-	{
-		$name=$row['name'];
-    $phone_no=$row['phone_no'];
-    $room_id=$row['room_id'];
-		echo '<option value="'.$name.'">'.$name.'</option>';
-    echo '<option value="'.$phone_no.'">'.$phone_no.'</option>';
-    echo '<option value="'.$room_id.'">'.$room_id.'</option>';
-	}
+  global $con;
+  $query = "select * from nurse";
+  $result = mysqli_query($con, $query);
+  while ($row = mysqli_fetch_array($result)) {
+    $name = $row['name'];
+    $phone_no = $row['phone_no'];
+    $room_id = $row['room_id'];
+    echo '<option value="' . $name . '">' . $name . '</option>';
+    echo '<option value="' . $phone_no . '">' . $phone_no . '</option>';
+    echo '<option value="' . $room_id . '">' . $room_id . '</option>';
+  }
 }
-if(isset($_POST['nurse_sub']))
-{
-	$name=$_POST['name'];
-  $phone_no=$_POST['phone_no'];
-  $room_id=$_POST['room_id'];
-	$query="insert into nurse(name,phone_no,room_id)values('$name','$phone_no','$room_id')";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:addnurse.php");
-
+if (isset($_POST['nurse_sub'])) {
+  $name = $_POST['name'];
+  $phone_no = $_POST['phone_no'];
+  $room_id = $_POST['room_id'];
+  $query = "insert into nurse(name,phone_no,room_id)values('$name','$phone_no','$room_id')";
+  $result = mysqli_query($con, $query);
+  if ($result)
+    header("Location:addnurse.php");
 }
 
 //for wardboy
 
 function display_wboy()
 {
-	global $con;
-	$query="select * from ward_boys";
-	$result=mysqli_query($con,$query);
-	while($row=mysqli_fetch_array($result))
-	{
-		$name=$row['name'];
-    $phone_no=$row['phone_no'];
-    $room_id=$row['room_id'];
-		echo '<option value="'.$name.'">'.$name.'</option>';
-    echo '<option value="'.$phone_no.'">'.$phone_no.'</option>';
-    echo '<option value="'.$room_id.'">'.$room_id.'</option>';
-	}
+  global $con;
+  $query = "select * from ward_boys";
+  $result = mysqli_query($con, $query);
+  while ($row = mysqli_fetch_array($result)) {
+    $name = $row['name'];
+    $phone_no = $row['phone_no'];
+    $room_id = $row['room_id'];
+    echo '<option value="' . $name . '">' . $name . '</option>';
+    echo '<option value="' . $phone_no . '">' . $phone_no . '</option>';
+    echo '<option value="' . $room_id . '">' . $room_id . '</option>';
+  }
 }
-if(isset($_POST['wboy_sub']))
+if (isset($_POST['wboy_sub'])) {
+  $name = $_POST['name'];
+  $phone_no = $_POST['phone_no'];
+  $room_id = $_POST['room_id'];
+  $query = "insert into ward_boys(name,phone_no,room_id)values('$name','$phone_no','$room_id')";
+  $result = mysqli_query($con, $query);
+  if ($result)
+    header("Location:addwardboys.php");
+}
+
+
+function display_admin_panel()
 {
-	$name=$_POST['name'];
-  $phone_no=$_POST['phone_no'];
-  $room_id=$_POST['room_id'];
-	$query="insert into ward_boys(name,phone_no,room_id)values('$name','$phone_no','$room_id')";
-	$result=mysqli_query($con,$query);
-	if($result)
-		header("Location:addwardboys.php");
-}
 
-
-function display_admin_panel(){
-  
-	echo '<!DOCTYPE html>
+  echo '<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -147,7 +138,9 @@ function display_admin_panel(){
     </ul>
     <form class="form-inline my-2 my-lg-0" method="post" action="search.php">
       <input class="form-control mr-sm-2" type="text" placeholder="enter contact number" aria-label="Search" name="contact">
+
       <input type="submit" class="btn btn-outline-light my-2 my-sm-0 btn btn-outline-light" id="inputbtn" name="search_submit" value="Search">
+
     </form>
   </div>
 </nav>
@@ -280,23 +273,28 @@ function display_admin_panel(){
         </div><br>
       </div>
 
-      <!-- Payment Section -->
+      <!-- Bill Section -->
 
 
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-        <div class="card">
-          <div class="card-body">
-            <form class="form-group" method="post" action="func.php">
-              <input type="text" name="contact" class="form-control" placeholder="enter contact"><br>
-              <select name="status" class="form-control">
-                <option value="paid">paid</option>
-                <option value="pay later">pay later</option>
-              </select><br><hr>
-              <input type="submit" value="update" name="update_data" class="btn btn-primary">
-            </form>
-          </div>
-        </div><br><br>
+      <div class="card">
+
+        <div class="card-body">
+        <center><h4>Generate bill:</h4></center><br>
+        <form class="form-inline my-2 my-lg-0" method="post" action="generate_bill.php">
+
+
+        <div class="col-md-4"><label>Patient Id:</label></div>
+        <input style="margin-left:-90px;" class="form-control mr-sm-2 col-md-8" type="text" placeholder="Enter Patient Id:" aria-label="Search" name="patient_id"><br><br><br>
+
+
+        <input style="margin-top:20px; margin-left: 46%"; type="submit" name="generate_bill" value="Generate bill" class="btn btn-primary">
+        
+
+      </form>
       </div>
+      </div><br><br>
+    </div>
 
       <!-- Doctor Section-->
      
@@ -379,6 +377,7 @@ function display_admin_panel(){
         </form>
       </div>
 
+      
 
       
     </div>
