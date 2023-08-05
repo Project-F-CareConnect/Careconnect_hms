@@ -30,7 +30,7 @@ if(isset($_POST['update_data']))
 		header("Location:updated.php");
 }
 
-
+// Insert data into doctor table
 function display_docs()
 {
 	global $con;
@@ -50,7 +50,7 @@ if(isset($_POST['doc_sub']))
 	if($result)
 		header("Location:adddoc.php");
 }
-//for nurse
+//Insert data in Nurse table
 
 function display_nurse()
 {
