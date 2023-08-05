@@ -20,14 +20,17 @@
 </html>
 <?php
 include("func.php");
-if(isset($_POST['entry_submit'])){
-  $fname=$_POST['fname'];
-  $lname=$_POST['lname'];
-  $email=$_POST['email'];
-  $contact=$_POST['contact'];
-  $doctor=$_POST['doctor'];
-  $payment=$_POST['payment'];
-  $query="insert into appointmenttb(fname,lname,email,contact,doctor,payment) values ('$fname','$lname','$email','$contact','$doctor','$payment');";
+if(isset($_POST['entry_submit']))
+{
+  $name=$_POST['name'];
+  $address=$_POST['address'];
+  $age=$_POST['age'];
+  $mobile_number=$_POST['mobile_number'];
+  $doctor_id=$_POST['doctor_id'];
+  $gender=$_POST['gender'];
+  $disease_id=$_POST['disease_id'];
+  $room_id=$_POST['room_id'];
+  $query="insert into Patient (name,address,age,gender,mobile_number,disease_id,doctor_id,room_id) values ('$name','$address','$age','$gender','$mobile_number','$disease_id','$doctor_id','$room_id');
   $result=mysqli_query($con,$query);
   if($result)
     header("Location:appointment.php");

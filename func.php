@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-$con=mysqli_connect("localhost","root","","hmsdb","3307");
+$con=mysqli_connect("localhost","root","","hmsdb","3306");
 
 if(isset($_POST['login_submit'])){
 	$username=$_POST['username'];
@@ -173,29 +173,69 @@ function display_admin_panel(){
               <center><h4>Create an appointment</h4></center><br>
               <form class="form-group" method="post" action="appointment.php">
                 <div class="row">
-                  <div class="col-md-4"><label>First Name:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control" name="fname"></div><br><br>
-                  <div class="col-md-4"><label>Last Name:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control"  name="lname"></div><br><br>
-                  <div class="col-md-4"><label>Email id:</label></div>
-                  <div class="col-md-8"><input type="text"  class="form-control" name="email"></div><br><br>
-                  <div class="col-md-4"><label>Contact Number:</label></div>
-                  <div class="col-md-8"><input type="text" class="form-control"  name="contact"></div><br><br>
-                  <div class="col-md-4"><label>Doctor:</label></div>
+                  <div class="col-md-4"><label>Name:</label></div>
+                  <div class="col-md-8"><input type="text" class="form-control" name="name"></div><br><br>
+                  
+                  <div class="col-md-4"><label>Address</label></div>
+                  <div class="col-md-8"><input type="text" class="form-control"  name="address"></div><br><br>
+
+                  <div class="col-md-4"><label>Age</label></div>
+                  <div class="col-md-8"><input type="text" class="form-control"  name="age"></div><br><br>
+
+                  <div class="col-md-4"><label>Gender:</label></div>
                   <div class="col-md-8">
-                   <select name="doctor" class="form-control" >
+                    <select name="payment" class="form-control" >
+                      <option value="Female">Female</option>
+                      <option value="Male">Male</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div><br><br><br>
+
+                  <div class="col-md-4"><label>Mobile Number:</label></div>
+                  <div class="col-md-8"><input type="text" class="form-control"  name="mobile_number"></div><br><br>
+
+                  <div class="col-md-4"><label>Disease ID</label></div>
+                  <div class="col-md-8">
+                   <select name="disease_id" class="form-control" >
+                     <option value="10000">1.Fever </option>
+                     <option value="10001">2.Typhoid </option>
+                     <option value="10002">3.Dengue </option>
+                     <option value="10003">4.Burns </option>
+                     <option value="10004">5.Kidney Stone </option>
+                     <option value="10005">6.Hand Fracture </option>
+                     <option value="10006">7.Migrane </option>
+                     <option value="10007">8.Blood Cancer </option>
+                     <option value="10008">9.Syphilis </option>
+                     <option value="10009">10.Head Injuries </option>
+                     <option value="10010">11.Cardiomyopathy </option>
+                     <option value="10011">12.AIDS </option>
+                     <option value="10012">13.Brest Cancer </option>
+                     <option value="10013">14.Hernias </option>
+                     
+                     
+                      <?php display_docs();?>
+                    </select>
+                  </div><br><br>
+
+                  <div class="col-md-4"><label>Doctor ID</label></div>
+                  <div class="col-md-8">
+                   <select name="doctor_id" class="form-control" >
                      <option value="Dr. Punam Shaw">Dr. Punam Shaw</option>
                       <option value="Dr. Ashok Goyal">Dr. Ashok Goyal</option>
                       <?php display_docs();?>
                     </select>
                   </div><br><br>
-                  <div class="col-md-4"><label>Payment:</label></div>
+
+                  <div class="col-md-4"><label>Room ID</label></div>
                   <div class="col-md-8">
-                    <select name="payment" class="form-control" >
-                      <option value="Paid">Paid</option>
-                      <option value="Pay later">Pay later</option>
+                   <select name="room_id" class="form-control" >
+                     <option value="Dr. Punam Shaw">Dr. Punam Shaw</option>
+                      <option value="Dr. Ashok Goyal">Dr. Ashok Goyal</option>
+                      <?php display_docs();?>
                     </select>
-                  </div><br><br><br>
+                  </div><br><br>
+
+                  
                   <div class="col-md-4">
                     <input type="submit" name="entry_submit" value="Create new entry" class="btn btn-primary" id="inputbtn">
                   </div>
