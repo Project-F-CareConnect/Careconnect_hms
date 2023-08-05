@@ -34,18 +34,26 @@ if(isset($_POST['update_data']))
 function display_docs()
 {
 	global $con;
-	$query="select * from doctb";
+	$query="select * from doctor";
 	$result=mysqli_query($con,$query);
 	while($row=mysqli_fetch_array($result))
 	{
 		$name=$row['name'];
 		echo '<option value="'.$name.'">'.$name.'</option>';
+
+    $phone_no=$row['phone_no'];
+		echo '<option value="'.$phone_no.'">'.$phone_no.'</option>';
+
+    $specialization=$row['specialization'];
+		echo '<option value="'.$specialization.'">'.$specialization.'</option>';
 	}
 }
 if(isset($_POST['doc_sub']))
 {
 	$name=$_POST['name'];
-	$query="insert into doctb(name)values('$name')";
+  $phone_no=$_POST['phone_no'];
+  $specialization=$_POST['specialization'];
+	$query="insert into doctor(name,specialization,phone_no)values('$name','$specialization','$phone_no')";
 	$result=mysqli_query($con,$query);
 	if($result)
 		header("Location:adddoc.php");
@@ -281,19 +289,23 @@ function display_admin_panel(){
       <!-- Doctor Section-->
      
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-        <form class="form-group" method="post" action="func.php">
-          <label>Doctors name: </label>
-          <input type="text" name="name" placeholder="Enter doctor name" class="form-control">
+      <form class="form-group" method="post" action="func.php">
+        <label>Doctors name: </label>
+        <input type="text" name="name" placeholder="Enter doctor name" class="form-control">
+        
 
-          <label style="margin-top:10px";>Specialization: </label>
-          <select name="status" class="form-control">
-            <option value="ENT">ENT</option>
-            <option value="Cardiology">Cardiology</option>
-          </select>
+        <label style="margin-top:10px";>Specialization: </label>
+        <select name="specialization" class="form-control">
+          <option value="General Physician">General Physician</option>
+          <option value="Cardiology">Cardiology</option>
+        </select>
 
-          <input style="margin-top:20px"; type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
-        </form>
-      </div>
+        <label>Phone Number: </label>
+        <input type="text" name="phone_no" placeholder="Enter Phone NUmber" class="form-control">
+
+        <input style="margin-top:20px"; type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
+      </form>
+    </div>
 
 <!-- for nurse -->
 

@@ -213,6 +213,17 @@ REFERENCES `ward_boys` (`wardboys_id`);
 
 
 
+CREATE TABLE `logintb` (
+  `username` varchar(80) NOT NULL,
+  `password` varchar(80) NOT NULL
+) ;
+
+
+INSERT INTO `logintb` (`username`, `password`) VALUES
+('admin', 'admin123');
+
+
+
 
 
 

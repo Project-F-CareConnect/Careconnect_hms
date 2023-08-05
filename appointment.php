@@ -40,10 +40,9 @@ if (isset($_POST['entry_submit'])) {
     // Check if the query executed successfully
     if ($result) {
         header("Location: appointment.php");
-        exit(); // Ensure no more code is executed after the redirection
+        exit();  
     } else {
-        // Handle the case where the query execution fails
-        // You can add error handling or redirection to an error page
+       
         echo "Error: " . mysqli_error($con);
     }
 }
