@@ -92,18 +92,24 @@ if(isset($_POST['nurse_sub']))
 function display_wboy()
 {
 	global $con;
-	$query="select * from wboyd";
+	$query="select * from ward_boys";
 	$result=mysqli_query($con,$query);
 	while($row=mysqli_fetch_array($result))
 	{
 		$name=$row['name'];
+    $phone_no=$row['phone_no'];
+    $room_id=$row['room_id'];
 		echo '<option value="'.$name.'">'.$name.'</option>';
+    echo '<option value="'.$phone_no.'">'.$phone_no.'</option>';
+    echo '<option value="'.$room_id.'">'.$room_id.'</option>';
 	}
 }
 if(isset($_POST['wboy_sub']))
 {
 	$name=$_POST['name'];
-	$query="insert into wboyd(name)values('$name')";
+  $phone_no=$_POST['phone_no'];
+  $room_id=$_POST['room_id'];
+	$query="insert into ward_boys(name,phone_no,room_id)values('$name','$phone_no','$room_id')";
 	$result=mysqli_query($con,$query);
 	if($result)
 		header("Location:addwardboys.php");
@@ -351,11 +357,23 @@ function display_admin_panel(){
           <label>Wardboy name: </label>
           <input type="text" name="name" placeholder="Enter Wardboy name" class="form-control">
 
-          <label style="margin-top:10px";>Shift: </label>
-          <select name="status" class="form-control">
-            <option value="morning">Day</option>
-            <option value="night">Night</option>
+          <label style="margin-top:10px";>Room id: </label>
+          <select name="room_id" class="form-control">
+          <option value="100"> 100.ICU </option>
+          <option value="101"> 101.Emergency </option>
+          <option value="102"> 102.OT </option>
+          <option value="103"> 103.General </option>
+          <option value="104"> 104.ICU </option>
+          <option value="105"> 105.Emergency</option>
+          <option value="106"> 106.OT</option>
+          <option value="107"> 107.General </option>
+          <option value="108"> 108.Emergency </option>
+          <option value="109"> 109.OT </option>
           </select>
+
+          <label>Phone Number: </label>
+        <input type="text" name="phone_no" placeholder="Enter Phone Number" class="form-control">
+
           <br>
           <input type="submit" name="wboy_sub" value="Add Wardboy" class="btn btn-primary">
         </form>
