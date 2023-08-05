@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-$con=mysqli_connect("localhost","root","","hmsdb","3307");
+$con=mysqli_connect("localhost","root","","hmsdb","3306");
 
 if(isset($_POST['login_submit'])){
 	$username=$_POST['username'];
