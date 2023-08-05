@@ -63,18 +63,24 @@ if(isset($_POST['doc_sub']))
 function display_nurse()
 {
 	global $con;
-	$query="select * from nursed";
+	$query="select * from nurse";
 	$result=mysqli_query($con,$query);
 	while($row=mysqli_fetch_array($result))
 	{
 		$name=$row['name'];
+    $phone_no=$row['phone_no'];
+    $room_id=$row['room_id'];
 		echo '<option value="'.$name.'">'.$name.'</option>';
+    echo '<option value="'.$phone_no.'">'.$phone_no.'</option>';
+    echo '<option value="'.$room_id.'">'.$room_id.'</option>';
 	}
 }
 if(isset($_POST['nurse_sub']))
 {
 	$name=$_POST['name'];
-	$query="insert into nurseb(name)values('$name')";
+  $phone_no=$_POST['phone_no'];
+  $room_id=$_POST['room_id'];
+	$query="insert into nurse(name,phone_no,room_id)values('$name','$phone_no','$room_id')";
 	$result=mysqli_query($con,$query);
 	if($result)
 		header("Location:addnurse.php");
@@ -301,7 +307,7 @@ function display_admin_panel(){
         </select>
 
         <label>Phone Number: </label>
-        <input type="text" name="phone_no" placeholder="Enter Phone NUmber" class="form-control">
+        <input type="text" name="phone_no" placeholder="Enter Phone Number" class="form-control">
 
         <input style="margin-top:20px"; type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
       </form>
@@ -315,17 +321,22 @@ function display_admin_panel(){
           <label>Nurse name: </label>
           <input type="text" name="name" placeholder="Enter Nurse name" class="form-control">
 
-          <label style="margin-top:10px";>Room no: </label>
-          <select name="status" class="form-control">
-            <option value="morning">1</option>
-            <option value="night">2</option>
+          <label style="margin-top:10px";>Room id: </label>
+          <select name="room_id" class="form-control">
+          <option value="100"> 100.ICU </option>
+          <option value="101"> 101.Emergency </option>
+          <option value="102"> 102.OT </option>
+          <option value="103"> 103.General </option>
+          <option value="104"> 104.ICU </option>
+          <option value="105"> 105.Emergency</option>
+          <option value="106"> 106.OT</option>
+          <option value="107"> 107.General </option>
+          <option value="108"> 108.Emergency </option>
+          <option value="109"> 109.OT </option>
           </select>
 
-           <label style="margin-top:10px";>Shift: </label>
-          <select name="status" class="form-control">
-            <option value="morning">Day</option>
-            <option value="night">Night</option>
-          </select>
+          <label>Phone Number: </label>
+        <input type="text" name="phone_no" placeholder="Enter Phone Number" class="form-control">
 
           
           <br>
