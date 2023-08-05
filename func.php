@@ -220,8 +220,12 @@ function display_admin_panel(){
                   <div class="col-md-4"><label>Doctor ID</label></div>
                   <div class="col-md-8">
                    <select name="doctor_id" class="form-control" >
-                     <option value="Dr. Punam Shaw">Dr. Punam Shaw</option>
-                      <option value="Dr. Ashok Goyal">Dr. Ashok Goyal</option>
+                   <option value="9000">1.Kushal Sharma </option>
+                   <option value="9003">2.Amrit Giri </option>
+                   <option value="9004">3.kiran Subedi </option>
+                   <option value="9007">4.Nishanta Chapagain</option>
+                   <option value="9009">5.Monika Karki </option>
+                   <option value="9006">6.Mandakini Sapkota </option>
                       <?php display_docs();?>
                     </select>
                   </div><br><br>
