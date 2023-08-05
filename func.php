@@ -207,7 +207,8 @@ function display_admin_panel(){
         </div><br>
       </div>
 
-// Payment section
+      <!-- Payment Section -->
+
 
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
         <div class="card">
@@ -224,7 +225,7 @@ function display_admin_panel(){
         </div><br><br>
       </div>
 
-//Doctor section
+      <!-- Doctor Section-->
      
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
         <form class="form-group" method="post" action="func.php">
