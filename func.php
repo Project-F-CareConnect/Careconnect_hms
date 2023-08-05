@@ -168,6 +168,8 @@ function display_admin_panel(){
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
+
+            
               <center><h4>Create an appointment</h4></center><br>
               <form class="form-group" method="post" action="appointment.php">
                 <div class="row">
@@ -205,7 +207,7 @@ function display_admin_panel(){
         </div><br>
       </div>
 
-
+// Payment section
 
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
         <div class="card">
@@ -222,7 +224,7 @@ function display_admin_panel(){
         </div><br><br>
       </div>
 
-
+//Doctor section
      
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
         <form class="form-group" method="post" action="func.php">
@@ -234,8 +236,6 @@ function display_admin_panel(){
             <option value="ENT">ENT</option>
             <option value="Cardiology">Cardiology</option>
           </select>
-
-
 
           <input style="margin-top:20px"; type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
         </form>
