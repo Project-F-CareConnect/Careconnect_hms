@@ -16,17 +16,17 @@ CREATE TABLE `Patient` (
 
 
 
-INSERT INTO `Patient` (`name`, `address`, `age`, `gender`, `mobile_number`, `disease_id`, `doctor_id`, `room_id`) VALUES
-('Aakash KC', 'Butwal', 34, 'Male', '9860565656', '10001', '9000', '103'),
-('Sankalpa Tamrakar', 'Damauli', 55, 'Male', '9870787878', '10002', '9004', '107'),
-('Pramila Dhami', 'Baglung', 22, 'Female', '9867675454', '10003', '9004', '103'),
-('Ashwin Adhikari', 'Beni', 21, 'Male', '9856544343', '10004', '9005', '101'),
-('Rajan Gupta', 'Syangja', 23, 'Male', '9867543434', '10005', '9000', '103'),
-('Bibash Poudel', 'Lekhnath', 43, 'Male', '9876668778', '10006', '9007', '102'),
-('Ram Krishna Sharma', 'Chitwan', 56, 'Male', '9826436938', '10007', '9006', '107'),
-('Bidhya Dhungana', 'Rajahar', 22, 'Female', '986718772', '10008', '9000', '103'),
-('Ali Khan', 'Pokhara', 32, 'Male', '9865534329','10009', '9002','101'),
-('Bhim Sharki', 'Bhairahawa', 12, 'Male', '9876564332', '10010', '9006', '107');
+INSERT INTO `Patient` (`name`, `address`, `age`, `gender`, `admission_date`, `mobile_number`, `disease_id`, `doctor_id`, `room_id`) VALUES
+('Aakash KC', 'Butwal', 34, 'Male', '2023-07-06','9860565656', '10001', '9000', '103'),
+('Sankalpa Tamrakar', 'Damauli', 55, 'Male','2023-07-23', '9870787878', '10002', '9004', '107'),
+('Pramila Dhami', 'Baglung', 22, 'Female', '2023-07-26','9867675454', '10003', '9004', '103'),
+('Ashwin Adhikari', 'Beni', 21, 'Male', '2023-07-16','9856544343', '10004', '9005', '101'),
+('Rajan Gupta', 'Syangja', 23, 'Male', '2023-07-09','9867543434', '10005', '9000', '103'),
+('Bibash Poudel', 'Lekhnath', 43, 'Male', '2023-07-29','9876668778', '10006', '9007', '102'),
+('Ram Krishna Sharma', 'Chitwan', 56, 'Male', '2023-07-05', '9826436938', '10007', '9006', '107'),
+('Bidhya Dhungana', 'Rajahar', 22, 'Female', '2023-06-06','986718772', '10008', '9000', '103'),
+('Ali Khan', 'Pokhara', 32, 'Male', '2023-07-16','9865534329','10009', '9002','101'),
+('Bhim Sharki', 'Bhairahawa', 12, 'Male', '2023-06-26','9876564332', '10010', '9006', '107');
 
 
 CREATE TABLE `disease` (
