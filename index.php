@@ -11,13 +11,13 @@
   <style type="text/css">
     #inputbtn:hover{cursor:pointer;}
   </style>
-  <body style="background:url('images/backgroundimg.jpeg'); background-size: cover;">
+  <body style="background:url('images/backgroundimg.jpg'); background-size: cover;">
     <div class="container-fluid" style="margin-top:60px;margin-bottom:60px;color:#34495E;">
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-4">
           <div class="card">
-            <img src="images/cardback.jpeg" class="card-img-top">
+            <img src="images/cardback.png" class="card-img-top">
             <div class="card-body">
               <center>
               <h5>Admin Login</h5><br>
