@@ -2,7 +2,7 @@
 $con=mysqli_connect("localhost","root","","hmsdb");
 if(isset($_POST['generate_bill'])){
   $patient_id=$_POST['patient_id'];
- $query="select * from Patient where patient_id='$patient_id';";
+ $query="select * from Patient join room on Patient.room_id = room.room_id where patient_id='$patient_id';";
  $result=mysqli_query($con,$query);
  echo '<!DOCTYPE html>
 <html lang="en">
