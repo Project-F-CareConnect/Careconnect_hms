@@ -53,6 +53,7 @@ echo "Charge Per Day: " . $charge_per_day . "<br>";
 echo "Admission Date: " . $admission_date . "<br>";
 echo "Total Amount: " . $Total_amount . "<br>";
 
+
     
     echo '<tr>
       <td>'.$bill_id.'</td>
@@ -60,7 +61,7 @@ echo "Total Amount: " . $Total_amount . "<br>";
       <td>'.$patient_id.'</td>
       <td>'.$name.'</td>
       <td>'.$no_of_days.'</td>
-      <td>'.$Total_amount.'</td>
+      <td>Rs.'.$Total_amount.'</td>
     </tr>';
   }
 echo '</tbody></table></div> 
