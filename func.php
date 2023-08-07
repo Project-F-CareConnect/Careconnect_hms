@@ -261,13 +261,17 @@ function display_admin_panel()
                     </select>
                   </div><br><br>
 
-                  
-                  <div class="col-md-4">
-                    <input type="submit" name="entry_submit" value="Create new entry" class="btn btn-primary" id="inputbtn">
+                                  <div class="col-md-4">
+                    <input style="margin-left:108%"; type="submit" name="entry_submit" value="Create new entry" class="btn btn-primary" id="inputbtn">
                   </div>
-                  <div class="col-md-8"></div>                  
+                
                 </div>
+
+                <div class="col-md-4">
+                  <a href="patient_list.php" style="margin-top:20px; margin-left: 107%; background-color:Tomato;"; class="btn btn-primary" id="inputbtn"> Show patient list</a>
+              </div>
               </form>
+           
             </div>
           </div>
         </div><br>
@@ -314,6 +318,13 @@ function display_admin_panel()
         <input type="text" name="phone_no" placeholder="Enter Phone Number" class="form-control">
 
         <input style="margin-top:20px"; type="submit" name="doc_sub" value="Add Doctor" class="btn btn-primary">
+
+        <div class="col-md-4">
+                  <a href="doctor_list.php" style="margin-top:20px; margin-left: -4%; background-color:Tomato;"; class="btn btn-primary" id="inputbtn"> Show Doctor list</a>
+              </div>
+
+        
+
       </form>
     </div>
 
@@ -345,6 +356,11 @@ function display_admin_panel()
           
           <br>
           <input type="submit" name="nurse_sub" value="Add Nurse" class="btn btn-primary">
+
+          <div class="col-md-4">
+                  <a href="nurse_list.php" style="margin-top:20px; margin-left: -4%; background-color:Tomato;"; class="btn btn-primary" id="inputbtn"> Show Nurse list</a>
+              </div>
+
         </form>
       </div>
       

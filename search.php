@@ -2,7 +2,7 @@
 $con=mysqli_connect("localhost","root","","hmsdb");
 if(isset($_POST['search_submit'])){
   $contact=$_POST['contact'];
- $query="select * from appointmenttb where contact='$contact';";
+ $query="select * from Patient where mobile_number='$contact';";
  $result=mysqli_query($con,$query);
  echo '<!DOCTYPE html>
 <html lang="en">
@@ -20,30 +20,45 @@ if(isset($_POST['search_submit'])){
   <table class="table table-hover">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Contact</th>
-      <th>Doctor</th>
-      <th>Payment</th>
+      <th>Patient ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Admission Date</th>
+      <th>Mobile Number</th>
+      <th>Disease ID</th>
+      <th>Doctor ID</th>
+      <th>Room ID</th>
     </tr>
   </thead>
   <tbody>
   ';
+
   while($row=mysqli_fetch_array($result)){
-    $fname=$row['fname'];
-    $lname=$row['lname'];
-    $email=$row['email'];
-    $contact=$row['contact'];
-    $doctor=$row['doctor'];
-    $payment=$row['payment'];
+    $patient_id = $row['patient_id'];
+    $name = $row['name'];
+  $address = $row['address'];
+  $age = $row['age'];
+  $gender = $row['gender'];
+  $admission_date = $row['admission_date'];
+  $mobile_number = $row['mobile_number'];
+  $disease_id = $row['disease_id'];
+  $doctor_id = $row['doctor_id'];  
+  $room_id = $row['room_id'];
+
     echo '<tr>
-      <td>'.$fname.'</td>
-      <td>'.$lname.'</td>
-      <td>'.$email.'</td>
-      <td>'.$contact.'</td>
-      <td>'.$doctor.'</td>
-      <td>'.$payment.'</td>
+    <td>'.$patient_id.'</td>
+      <td>'.$name.'</td>
+      <td>'.$address.'</td>
+      <td>'.$age.'</td>
+      <td>'.$gender.'</td>
+      <td>'.$admission_date.'</td>
+      <td>'.$mobile_number.'</td>
+      <td>'.$disease_id.'</td>
+      <td>'.$doctor_id.'</td>
+      <td>'.$room_id.'</td>
+      
     </tr>';
   }
 echo '</tbody></table></div> 
