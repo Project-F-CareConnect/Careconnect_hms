@@ -67,6 +67,7 @@ $result = mysqli_query($con, $query);
                 ?>
             </tbody>
         </table>
+        <a href="admin-panel.php" class="btn btn-outline-light" onMouseOver="this.style.color='#0000FF'">Go Back</a>
     </div>
 
     <!-- Optional JavaScript -->
