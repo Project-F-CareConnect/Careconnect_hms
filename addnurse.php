@@ -9,6 +9,10 @@
   <body style="background-color:#3498DB;color:white;padding-top:100px;text-align:center;">
     <h3>Your nurse has been added.</h3><br><br>
     <a href="admin-panel.php" class="btn btn-outline-light">Go to Admin Panel</a>
+
+    <div class="col-md-4">
+                  <a href="nurse_list.php"  style="margin:20px; margin-left: 143%; margin-bottom: 13%; background-color:Tomato;"; class="btn btn-primary" id="inputbtn"> Show Nurse list</a>
+              </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
