@@ -9,9 +9,7 @@ if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Handle the form submission
-if (isset($_POST['nurse_submit'])) {
-}
+
 
 // Query to retrieve patient data
 $query = "SELECT * FROM nurse;";

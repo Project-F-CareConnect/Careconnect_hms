@@ -390,6 +390,11 @@ function display_admin_panel()
 
           <br>
           <input type="submit" name="wboy_sub" value="Add Wardboy" class="btn btn-primary">
+
+          <div class="col-md-4">
+          <a href="wardbys_list.php" style="margin-top:20px; margin-left: -4%; background-color:Tomato;"; class="btn btn-primary" id="inputbtn"> Show wardboys list</a>
+      </div>
+
         </form>
       </div>
 
